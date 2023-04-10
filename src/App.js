@@ -1,11 +1,9 @@
-import React from "react";
-
-import Login from "./Containers/Login/Login";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <h2> Front-end CodeBurguer</h2>
     </div>
   );
 }
