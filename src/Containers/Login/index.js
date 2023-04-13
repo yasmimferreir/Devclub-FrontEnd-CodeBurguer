@@ -9,7 +9,7 @@ function Login() {
     <Container>
       <LoginImage src={LoginImg} alt="Image Login" />
       <ContaiinerItems>
-        <img src={Logo} alt="logo codeburguer" />
+        <img className="logoBurguer" src={Logo} alt="logo codeburguer" />
 
         <h1>Login</h1>
         <Label>Email</Label>
@@ -21,7 +21,7 @@ function Login() {
         <Button>Entrar</Button>
 
         <SignInLink>
-          Não possui conta? <a>cadastre-se</a>
+          Não possui conta? <a> Cadastre-se</a>
         </SignInLink>
       </ContaiinerItems>
     </Container>

@@ -10,22 +10,13 @@ export const Container = styled.div`
 `;
 
 export const LoginImage = styled.img`
-  position: absolute;
-  width: 52rem;
-  height: 49.5rem;
-  left: 0;
-  top: 0;
+  height: 100%;
 `;
 
 export const ContaiinerItems = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-  background: #373737;
-  width: 43rem;
-  height: 49.5rem;
-  left: 52rem;
+  background-color: #373737;
+  height: 100%;
+  width: 90%;
   padding: 25px 75px;
 
   h1 {
@@ -33,8 +24,10 @@ export const ContaiinerItems = styled.div`
     font-size: 24px;
     line-height: 28px;
     color: #ffffff;
-    text-align: center;
-    margin-top: 5rem;
+  }
+
+  .logoBurguer {
+    margin: 10rem 0 2rem 2rem;
   }
 `;
 
@@ -65,14 +58,30 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 11rem;
   height: 2.2rem;
-  /*left: 944px;*/
   margin-top: 2rem;
   border: none;
-
   background: #9758a6;
   color: #fff;
+  font-weight: 500;
   border-radius: 20px;
   cursor: pointer;
+  transition: all 1s;
+
+  &:hover {
+    opacity: 0.8;
+    transition: all 1s;
+  }
 `;
 
-export const SignInLink = styled.p``;
+export const SignInLink = styled.p`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ffffff;
+  margin-top: 1.3rem;
+
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`;
