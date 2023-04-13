@@ -4,7 +4,17 @@ import { Container, LoginImage, ContaiinerItems, Label, Input, Button, SignInLin
 import LoginImg from '../../assets/background.svg';
 import Logo from '../../assets/logo.svg';
 
+import { useForm } from 'react-hook-form';
+
 function Login() {
+  const {
+    register,
+    handleSubmit,
+    //formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <Container>
       <LoginImage src={LoginImg} alt="Image Login" />
@@ -12,13 +22,16 @@ function Login() {
         <img className="logoBurguer" src={Logo} alt="logo codeburguer" />
 
         <h1>Login</h1>
-        <Label>Email</Label>
-        <Input />
 
-        <Label>Senha</Label>
-        <Input />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Label>Email</Label>
+          <Input {...register('Email')} type="email" />
 
-        <Button>Entrar</Button>
+          <Label>Senha</Label>
+          <Input {...register('Senha')} type="password" />
+
+          <Button type="submit">Entrar</Button>
+        </form>
 
         <SignInLink>
           Não possui conta? <a> Cadastre-se</a>

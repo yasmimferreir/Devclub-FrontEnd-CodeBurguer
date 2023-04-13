@@ -74,7 +74,7 @@ export const Button = styled.button`
 `;
 
 export const SignInLink = styled.p`
-  font-weight: 400;
+  font-weight: 100;
   font-size: 14px;
   line-height: 16px;
   color: #ffffff;
