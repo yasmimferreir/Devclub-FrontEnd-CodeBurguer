@@ -1,17 +1,38 @@
 import React from 'react';
-import { Container, LoginImage, ContaiinerItems, Label, Input, Button, SignInLink } from './styles';
+import {
+  Container,
+  LoginImage,
+  ContaiinerItems,
+  Label,
+  Input,
+  ErrorMessage,
+  Button,
+  SignInLink,
+} from './styles';
 
 import LoginImg from '../../assets/background.svg';
 import Logo from '../../assets/logo.svg';
 
 import { useForm } from 'react-hook-form';
 
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
 function Login() {
+  const schema = Yup.object().shape({
+    email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
+    password: Yup.string()
+      .required('A senha é obrigatória')
+      .min(6, 'A senha deve ter pelo menos 6 digitos'),
+  });
+
   const {
     register,
     handleSubmit,
-    //formState: { errors },
-  } = useForm();
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => console.log(data);
 
@@ -23,12 +44,14 @@ function Login() {
 
         <h1>Login</h1>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label>Email</Label>
-          <Input {...register('Email')} type="email" />
+          <Input {...register('email')} type="email" error={errors.email?.message} />
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
           <Label>Senha</Label>
-          <Input {...register('Senha')} type="password" />
+          <Input {...register('password')} type="password" error={errors.password?.message} />
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
           <Button type="submit">Entrar</Button>
         </form>
