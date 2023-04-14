@@ -18,6 +18,8 @@ import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import api from '../../services/api';
+
 function Login() {
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
@@ -34,7 +36,14 @@ function Login() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (clientData) => {
+    const response = await api.post('session', {
+      email: clientData.email,
+      password: clientData.password,
+    });
+
+    console.log(response);
+  };
 
   return (
     <Container>
