@@ -37,7 +37,7 @@ function Login() {
   });
 
   const onSubmit = async (clientData) => {
-    const response = await api.post('session', {
+    const response = await api.post('sessions', {
       email: clientData.email,
       password: clientData.password,
     });
