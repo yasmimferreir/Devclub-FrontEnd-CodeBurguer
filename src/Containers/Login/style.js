@@ -13,7 +13,7 @@ export const LoginImage = styled.img`
   height: 100%;
 `;
 
-export const ContaiinerItems = styled.div`
+export const ContainerItems = styled.div`
   background-color: #373737;
   height: 100%;
   width: 90%;
@@ -61,24 +61,6 @@ export const ErrorMessage = styled.p`
   line-height: 21px;
   color: #cc1717;
   margin-top: 2px;
-`;
-
-export const Button = styled.button`
-  width: 11rem;
-  height: 2.2rem;
-  margin-top: 2rem;
-  border: none;
-  background: #9758a6;
-  color: #fff;
-  font-weight: 500;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 1s;
-
-  &:hover {
-    opacity: 0.8;
-    transition: all 1s;
-  }
 `;
 
 export const SignInLink = styled.p`

@@ -1,10 +1,11 @@
-import Login from './Containers/Login/index';
+//import Login from './Containers/Login/Login';
+import Register from './Containers/Register/Register';
 import GlobalStyled from './styles/globalStyled';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <Register />
       <GlobalStyled />
     </div>
   );
