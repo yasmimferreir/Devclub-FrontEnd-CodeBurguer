@@ -41,7 +41,7 @@ function Register() {
   });
 
   const onSubmit = async (clientData) => {
-    const response = await api.post('sessions', {
+    const response = await api.post('users', {
       name: clientData.name,
       email: clientData.email,
       password: clientData.password,
