@@ -20,6 +20,8 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import api from '../../services/api';
 
+import { toast } from 'react-toastify';
+
 function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
@@ -41,13 +43,43 @@ function Register() {
   });
 
   const onSubmit = async (clientData) => {
-    const response = await api.post('users', {
-      name: clientData.name,
-      email: clientData.email,
-      password: clientData.password,
-    });
+    try {
+      const { status } = await api.post(
+        'users',
+        {
+          name: clientData.name,
+          email: clientData.email,
+          password: clientData.password,
+        },
+        { validateStatus: () => true }
+      );
 
-    console.log(response);
+      if (status == 201 || status == 200) {
+        toast.success('Sucesso ao cadastrar!', {
+          position: 'top-center',
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+      } else if (status == 409) {
+        toast.error('Usuário já cadastrado, faça Login para continuar', {
+          position: 'top-center',
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      toast.error('Falha no sistema! Tente novamente');
+    }
   };
 
   return (
