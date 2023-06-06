@@ -18,11 +18,15 @@ import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { userUser } from '../../hooks/UserContext';
+
 import api from '../../services/api';
 
 import { toast } from 'react-toastify';
 
 function Login() {
+  const { putUserData, userData } = userUser();
+
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
     password: Yup.string()
@@ -39,7 +43,7 @@ function Login() {
   });
 
   const onSubmit = async (clientData) => {
-    const data = await toast.promise(
+    const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
         password: clientData.password,
@@ -52,9 +56,9 @@ function Login() {
       }
     );
 
-    console.log(data);
+    putUserData(data);
+    console.log(userData);
   };
-
   return (
     <Container>
       <LoginImage src={LoginImg} alt="Image Login" />
