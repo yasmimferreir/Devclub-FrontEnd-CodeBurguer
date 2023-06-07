@@ -21,6 +21,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import api from '../../services/api';
 
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 function Register() {
   const schema = Yup.object().shape({
@@ -117,7 +118,11 @@ function Register() {
         </form>
 
         <SignInLink>
-          Já possui conta? <a> Entrar</a>
+          Já possui conta?{' '}
+          <Link to="/login" style={{ color: 'white' }}>
+            {' '}
+            Entrar
+          </Link>
         </SignInLink>
       </ContainerItems>
     </Container>

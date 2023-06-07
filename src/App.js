@@ -1,13 +1,13 @@
-import Login from './Containers/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import GlobalStyled from './styles/globalStyled';
 import { UserProvider } from './hooks/UserContext';
+import Routes from './routes/routes';
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        <Login />
+        <Routes />
       </UserProvider>
       <ToastContainer autoClose={2000} />
       <GlobalStyled />

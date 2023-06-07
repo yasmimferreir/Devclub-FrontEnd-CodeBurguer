@@ -23,11 +23,10 @@ import { userUser } from '../../hooks/UserContext';
 import api from '../../services/api';
 
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 function Login() {
-  const { putUserData, userData } = userUser();
-
-  console.log(userData);
+  const { putUserData } = userUser();
 
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
@@ -83,7 +82,11 @@ function Login() {
         </form>
 
         <SignInLink>
-          Não possui conta? <a> Cadastre-se</a>
+          Não possui conta?{' '}
+          <Link to="/cadastre-se" style={{ color: 'white' }}>
+            {' '}
+            Cadastre-se
+          </Link>
         </SignInLink>
       </ContainerItems>
     </Container>
