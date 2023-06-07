@@ -27,6 +27,8 @@ import { toast } from 'react-toastify';
 function Login() {
   const { putUserData, userData } = userUser();
 
+  console.log(userData);
+
   const schema = Yup.object().shape({
     email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
     password: Yup.string()
@@ -57,7 +59,6 @@ function Login() {
     );
 
     putUserData(data);
-    console.log(userData);
   };
   return (
     <Container>
