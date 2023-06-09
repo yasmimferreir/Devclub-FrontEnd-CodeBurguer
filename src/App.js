@@ -1,13 +1,13 @@
 import { ToastContainer } from 'react-toastify';
 import GlobalStyled from './styles/globalStyled';
 import { UserProvider } from './hooks/UserContext';
-import Routes from './routes/routes';
+import Rotas from './routes/routes';
 
 function App() {
   return (
     <div className="App">
       <UserProvider>
-        <Routes />
+        <Rotas />
       </UserProvider>
       <ToastContainer autoClose={2000} />
       <GlobalStyled />
