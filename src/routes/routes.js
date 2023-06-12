@@ -13,9 +13,7 @@ function Rotas() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastre-se" element={<Register />} />
 
-          <Route exact path="/" element={<PrivateRoute />}>
-            <Route path="/" element={<Home />} />
-          </Route>
+          <Route exact path="/" element={<PrivateRoute Component={<Home />} />} />
         </Routes>
       </BrowserRouter>
     </>
@@ -23,13 +21,3 @@ function Rotas() {
 }
 
 export default Rotas;
-
-//  <Route
-//exact
-//path="/"
-//element={
-//<PrivateRoute>
-//  <Home />
-// </PrivateRoute>
-//}
-///>
