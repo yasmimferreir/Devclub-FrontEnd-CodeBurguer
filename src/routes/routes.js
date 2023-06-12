@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from '../Containers/Login/Login';
 import Register from '../Containers/Register/Register';
 import Home from '../Containers/Home/Home';
@@ -8,14 +8,15 @@ import PrivateRoute from './private-route';
 function Rotas() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/cadastre-se" element={<Register />} />
+      <Router>
+        <Switch>
+          <Route component={Login} path="/login" />
 
-          <Route exact path="/" element={<PrivateRoute Component={<Home />} />} />
-        </Routes>
-      </BrowserRouter>
+          <Route component={Register} path="/cadastre-se" />
+
+          <PrivateRoute exact component={Home} path="/" />
+        </Switch>
+      </Router>
     </>
   );
 }
