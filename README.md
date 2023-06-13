@@ -31,7 +31,7 @@ npm install react-icons --save
 ## 🍔 Projeto 
 <br>
 
-<img src="https://user-images.githubusercontent.com/97356148/221013692-00897a1e-05f8-4d21-b022-4a7aca8bf709.svg" width="1040px">
+<img src="https://github.com/yasmimferreir/Devclub-FrontEnd-CodeBurguer/assets/97356148/ed61519c-d292-47a7-b549-1c08383cebe7" width="1040px">
 
 <br>
 
