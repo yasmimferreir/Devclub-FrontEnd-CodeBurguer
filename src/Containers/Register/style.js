@@ -6,16 +6,18 @@ export const Container = styled.div`
   justify-content: center;
   height: 100vh;
   width: 100vw;
+  background-color: #373737;
 `;
 
 export const RegisterImage = styled.img`
   height: 100%;
+  width: 150%;
 `;
 
 export const ContainerItems = styled.div`
   background-color: #373737;
   height: 100%;
-  width: 90%;
+  width: 100%;
   padding: 25px 75px;
 
   h1 {
