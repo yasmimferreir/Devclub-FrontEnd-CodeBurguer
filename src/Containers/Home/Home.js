@@ -1,11 +1,14 @@
 import React from 'react';
+import { Container, HomeImg } from './styles';
+import BackgroundHome from '../../assets/backgroundHome.svg';
+import CategoryCarousel from '../../components/CategoryCarousel/CategoryCarousel';
 
 function Home() {
   return (
-    <div>
-      Pag Home
-      <h1> Pagina Home</h1>
-    </div>
+    <Container>
+      <HomeImg src={BackgroundHome} alt="Background-Home" />
+      <CategoryCarousel />
+    </Container>
   );
 }
 
