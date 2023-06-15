@@ -23,9 +23,11 @@ import { userUser } from '../../hooks/UserContext';
 import api from '../../services/api';
 
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function Login() {
+  const history = useHistory();
+
   const { putUserData } = userUser();
 
   const schema = Yup.object().shape({
@@ -58,6 +60,10 @@ function Login() {
     );
 
     putUserData(data);
+
+    setTimeout(() => {
+      history.push('/');
+    }, 1000);
   };
   return (
     <Container>
