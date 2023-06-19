@@ -4,6 +4,7 @@ import Login from '../Containers/Login/Login';
 import Register from '../Containers/Register/Register';
 import Home from '../Containers/Home/Home';
 import PrivateRoute from './private-route';
+import Products from '../Containers/Products/Products';
 
 function Rotas() {
   return (
@@ -15,6 +16,7 @@ function Rotas() {
           <Route component={Register} path="/cadastre-se" />
 
           <PrivateRoute exact component={Home} path="/" />
+          <PrivateRoute component={Products} path="/produtos" />
         </Switch>
       </Router>
     </>

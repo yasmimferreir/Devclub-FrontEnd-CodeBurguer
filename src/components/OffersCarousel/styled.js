@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 35px;
   padding: 35px 0;
-  background: #efefef;
+  background: #ffffff;
 
   .rec.rec-arrow {
     background: #9758a6;
@@ -33,11 +33,21 @@ export const CarouselImg = styled.img``;
 export const ContainerItems = styled.div`
   display: flex;
   flex-direction: column;
+
+  p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+    text-transform: capitalize;
+    color: #424242;
+  }
 `;
 
 export const Image = styled.img`
   width: 200px;
   border-radius: 10px;
+  margin-bottom: 16px;
 `;
 
 export const Button = styled.button`
