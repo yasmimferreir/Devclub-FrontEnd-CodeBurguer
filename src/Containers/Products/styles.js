@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  background: #e5e5e5;
+`;
 
 export const CategoriesMenu = styled.div`
   display: flex;
@@ -26,4 +28,9 @@ export const CategoryButton = styled.button`
   cursor: pointer;
 `;
 
-export const ProductContainer = styled.div``;
+export const ProductContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 40px;
+`;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductContainer } from './styles';
 import BackgroundProduct from '../../assets/backgroundProducts.svg';
+import CardProduct from '../../components/CardProduct/CardProduct';
 
 function Products() {
   const [categories, setCategories] = useState([]);
@@ -21,7 +22,7 @@ function Products() {
       const { data } = await api.get('products');
 
       console.log(data);
-      setCategories(data);
+      setProducts(data);
     }
 
     loadProducts();
@@ -46,7 +47,9 @@ function Products() {
           ))}
       </CategoriesMenu>
 
-      <ProductContainer></ProductContainer>
+      <ProductContainer>
+        {products && products.map((product) => <CardProduct key={product.id} product={product} />)}
+      </ProductContainer>
     </Container>
   );
 }
