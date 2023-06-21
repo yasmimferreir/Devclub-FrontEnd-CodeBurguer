@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   gap: 12px;
   padding: 16px;
+  width: max-content;
 
   div {
     display: flex;
@@ -24,6 +25,8 @@ export const ProductName = styled.p`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  width: 151px;
+  text-transform: capitalize;
   line-height: 19px;
   color: #000000;
 `;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import { Container, Image, ProductName, ProductPrice } from './styled';
+import { BsFillCartPlusFill } from 'react-icons/bs';
 
 function CardProduct({ product }) {
   return (
@@ -10,8 +11,11 @@ function CardProduct({ product }) {
 
       <div>
         <ProductName>{product.name}</ProductName>
-        <ProductPrice>{product.price}</ProductPrice>
-        <Button>Adicionar</Button>
+        <ProductPrice>{product.formatedPrice}</ProductPrice>
+        <Button style={{ width: '8rem' }}>
+          Adicionar {''}
+          <BsFillCartPlusFill style={{ fontSize: '14px' }} />
+        </Button>
       </div>
     </Container>
   );

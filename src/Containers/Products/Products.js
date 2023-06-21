@@ -3,6 +3,7 @@ import api from '../../services/api';
 import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductContainer } from './styles';
 import BackgroundProduct from '../../assets/backgroundProducts.svg';
 import CardProduct from '../../components/CardProduct/CardProduct';
+import formatCurrenct from '../../utils/formatCurrency';
 
 function Products() {
   const [categories, setCategories] = useState([]);
@@ -19,10 +20,13 @@ function Products() {
     }
 
     async function loadProducts() {
-      const { data } = await api.get('products');
+      const { data: allProducts } = await api.get('products');
 
-      console.log(data);
-      setProducts(data);
+      const newProducts = allProducts.map((product) => {
+        return { ...product, formatedPrice: formatCurrenct(product.price) };
+      });
+
+      setProducts(newProducts);
     }
 
     loadProducts();
