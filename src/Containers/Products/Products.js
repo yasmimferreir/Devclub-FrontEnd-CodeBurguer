@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductContainer } from './styles';
 import BackgroundProduct from '../../assets/backgroundProducts.svg';
-import CardProduct from '../../components/CardProduct/CardProduct';
+import { CardProduct } from '../../components';
 import formatCurrenct from '../../utils/formatCurrency';
 
-function Products() {
+export function Products() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const [filterProducts, setFilterProducts] = useState([]);
+
   const [activeCategory, setActiveCategory] = useState(0);
 
   useEffect(() => {
@@ -33,6 +36,16 @@ function Products() {
     loadCategories();
   }, []);
 
+  useEffect(() => {
+    if (activeCategory === 0) {
+      setFilterProducts(products);
+    } else {
+      const newFilterProduct = products.filter((product) => product.category_id === activeCategory);
+
+      setFilterProducts(newFilterProduct);
+    }
+  }, [activeCategory, products]);
+
   return (
     <Container>
       <ProductImg src={BackgroundProduct} alt="Background-Product" />
@@ -52,10 +65,9 @@ function Products() {
       </CategoriesMenu>
 
       <ProductContainer>
-        {products && products.map((product) => <CardProduct key={product.id} product={product} />)}
+        {filterProducts &&
+          filterProducts.map((product) => <CardProduct key={product.id} product={product} />)}
       </ProductContainer>
     </Container>
   );
 }
-
-export default Products;

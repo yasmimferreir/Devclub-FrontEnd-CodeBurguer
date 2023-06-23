@@ -9,7 +9,7 @@ import {
   SignInLink,
 } from './style';
 
-import Button from '../../components/Button/Button';
+import { Button } from '../../components';
 import LoginImg from '../../assets/background.svg';
 import Logo from '../../assets/logo.svg';
 
@@ -25,7 +25,7 @@ import api from '../../services/api';
 import { toast } from 'react-toastify';
 import { Link, useHistory } from 'react-router-dom';
 
-function Login() {
+export function Login() {
   const history = useHistory();
 
   const { putUserData } = userUser();
@@ -98,5 +98,3 @@ function Login() {
     </Container>
   );
 }
-
-export default Login;

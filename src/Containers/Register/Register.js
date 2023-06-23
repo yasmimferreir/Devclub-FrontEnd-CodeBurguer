@@ -9,7 +9,7 @@ import {
   SignInLink,
 } from './style';
 
-import Button from '../../components/Button/Button';
+import { Button } from '../../components';
 
 import Logo from '../../assets/logo.svg';
 
@@ -23,7 +23,7 @@ import api from '../../services/api';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string().email('Digite um e-mail válido').required('O email é obrigatório'),
@@ -128,5 +128,3 @@ function Register() {
     </Container>
   );
 }
-
-export default Register;

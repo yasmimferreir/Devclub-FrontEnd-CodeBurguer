@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { Container, Image, ProductName, ProductPrice } from './styled';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 
-function CardProduct({ product }) {
+export function CardProduct({ product }) {
   return (
     <Container>
       <Image src={product.url} alt="image-produtos" />
@@ -20,8 +20,6 @@ function CardProduct({ product }) {
     </Container>
   );
 }
-
-export default CardProduct;
 
 CardProduct.propTypes = {
   product: PropTypes.object,

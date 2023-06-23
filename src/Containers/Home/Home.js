@@ -1,10 +1,9 @@
 import React from 'react';
 import { Container, HomeImg } from './styles';
 import BackgroundHome from '../../assets/backgroundHome.svg';
-import CategoryCarousel from '../../components/CategoryCarousel/CategoryCarousel';
-import OffersCarousel from '../../components/OffersCarousel/OffersCarousel';
+import { CategoryCarousel, OffersCarousel } from '../../components';
 
-function Home() {
+export function Home() {
   return (
     <Container>
       <HomeImg src={BackgroundHome} alt="Background-Home" />
@@ -13,5 +12,3 @@ function Home() {
     </Container>
   );
 }
-
-export default Home;
