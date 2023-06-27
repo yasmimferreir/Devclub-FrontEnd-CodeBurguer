@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, CarouselImg, ContainerItems, Image, Button } from './style';
+import { Container, CarouselImg, ContainerItems, Image, Button } from './styled';
 import ImgCategory from '../../assets/categories.svg';
 import api from '../../services/api';
 import Carousel from 'react-elastic-carousel';

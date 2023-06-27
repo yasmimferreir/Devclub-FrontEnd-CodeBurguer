@@ -9,19 +9,21 @@ export const CardProvider = ({ children }) => {
   const putProductInCart = async (product) => {
     const cartIndex = cardProducts.findIndex((prd) => prd.id === product.id);
 
+    let newCartProducts = [];
     if (cartIndex >= 0) {
-      const newCartProducts = cardProducts;
+      newCartProducts = cardProducts;
 
       newCartProducts[cartIndex].quantity = newCartProducts[cartIndex].quantity + 1;
 
       setCardProducts(newCartProducts);
     } else {
       product.quantity = 1;
+      newCartProducts = [...cardProducts, product];
 
-      setCardProducts([...cardProducts, product]);
+      setCardProducts(newCartProducts);
     }
 
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(cardProducts));
+    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCartProducts));
   };
 
   useEffect(() => {
