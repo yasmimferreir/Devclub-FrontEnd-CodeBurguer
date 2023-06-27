@@ -3,16 +3,21 @@ import PropTypes from 'prop-types';
 
 const CartContext = createContext({});
 
-export function CardProvider({ children }) {
+export const CardProvider = ({ children }) => {
   const [cardProducts, setCardProducts] = useState([]);
 
   const putProductInCart = async (product) => {
-    const cartIndex = cardProducts.findIndex((prd) => prd.id === prd.id);
+    const cartIndex = cardProducts.findIndex((prd) => prd.id === product.id);
 
     if (cartIndex >= 0) {
-      return;
+      const newCartProducts = cardProducts;
+
+      newCartProducts[cartIndex].quantity = newCartProducts[cartIndex].quantity + 1;
+
+      setCardProducts(newCartProducts);
     } else {
       product.quantity = 1;
+
       setCardProducts([...cardProducts, product]);
     }
 
@@ -37,7 +42,7 @@ export function CardProvider({ children }) {
       {children}{' '}
     </CartContext.Provider>
   );
-}
+};
 
 export const userCart = () => {
   const context = useContext(CartContext);
