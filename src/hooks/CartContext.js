@@ -26,6 +26,16 @@ export const CardProvider = ({ children }) => {
     await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCartProducts));
   };
 
+  const increaseProducts = async (productId) => {
+    const newCart = cardProducts.map((product) => {
+      return product.id === productId ? { ...product, quantity: product.quantity + 1 } : product;
+    });
+
+    setCardProducts(newCart);
+
+    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCart));
+  };
+
   useEffect(() => {
     const loadUserData = async () => {
       const clientCartData = await localStorage.getItem('codeburguer:cartInfo');
@@ -39,7 +49,7 @@ export const CardProvider = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ putProductInCart, cardProducts }}>
+    <CartContext.Provider value={{ putProductInCart, cardProducts, increaseProducts }}>
       {' '}
       {children}{' '}
     </CartContext.Provider>
