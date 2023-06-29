@@ -6,6 +6,10 @@ const CartContext = createContext({});
 export const CardProvider = ({ children }) => {
   const [cardProducts, setCardProducts] = useState([]);
 
+  const updateLocalStorage = async (products) => {
+    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(products));
+  };
+
   const putProductInCart = async (product) => {
     const cartIndex = cardProducts.findIndex((prd) => prd.id === product.id);
 
@@ -23,7 +27,15 @@ export const CardProvider = ({ children }) => {
       setCardProducts(newCartProducts);
     }
 
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCartProducts));
+    await updateLocalStorage(newCartProducts);
+  };
+
+  const deleteProduct = async (productId) => {
+    const newCart = cardProducts.filter((product) => product.id != productId);
+
+    setCardProducts(newCart);
+
+    await updateLocalStorage(newCart);
   };
 
   const increaseProducts = async (productId) => {
@@ -33,7 +45,23 @@ export const CardProvider = ({ children }) => {
 
     setCardProducts(newCart);
 
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCart));
+    await updateLocalStorage(newCart);
+  };
+
+  const decreaseProducts = async (productId) => {
+    const cartIndex = cardProducts.findIndex((pd) => pd.id === productId);
+
+    if (cardProducts[cartIndex].quantity > 1) {
+      const newCart = cardProducts.map((product) => {
+        return product.id === productId ? { ...product, quantity: product.quantity - 1 } : product;
+      });
+
+      setCardProducts(newCart);
+
+      await updateLocalStorage(newCart);
+    } else {
+      deleteProduct(productId);
+    }
   };
 
   useEffect(() => {
@@ -49,7 +77,9 @@ export const CardProvider = ({ children }) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ putProductInCart, cardProducts, increaseProducts }}>
+    <CartContext.Provider
+      value={{ putProductInCart, cardProducts, increaseProducts, decreaseProducts }}
+    >
       {' '}
       {children}{' '}
     </CartContext.Provider>

@@ -5,7 +5,7 @@ import formatCurrency from '../../utils/formatCurrency';
 import { TbShoppingCartOff } from 'react-icons/tb';
 
 export function CartItems() {
-  const { cardProducts, increaseProducts } = userCart();
+  const { cardProducts, increaseProducts, decreaseProducts } = userCart();
   console.log(cardProducts);
 
   return (
@@ -25,7 +25,7 @@ export function CartItems() {
             <p>{formatCurrency(product.price)}</p>
 
             <div className="quantity-container">
-              <button>-</button>
+              <button onClick={() => decreaseProducts(product.id)}>-</button>
               <p>{product.quantity}</p>
               <button onClick={() => increaseProducts(product.id)}>+</button>
             </div>
