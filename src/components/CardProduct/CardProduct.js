@@ -16,8 +16,7 @@ export function CardProduct({ product }) {
         <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.formatedPrice}</ProductPrice>
         <Button onClick={() => putProductInCart(product)}>
-          Adicionar {''}
-          <BsFillCartPlusFill style={{ fontSize: '14px' }} />
+          Adicionar {''} <BsFillCartPlusFill style={{ fontSize: '14px' }} />
         </Button>
       </div>
     </Container>

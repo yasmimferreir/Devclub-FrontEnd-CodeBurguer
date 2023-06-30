@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { toast } from 'react-toastify';
+
 const CartContext = createContext({});
 
 export const CardProvider = ({ children }) => {
@@ -27,13 +29,30 @@ export const CardProvider = ({ children }) => {
       setCardProducts(newCartProducts);
     }
 
+    toast.success('🛒 Adicionado ao carrinho!', {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+    });
+
     await updateLocalStorage(newCartProducts);
   };
 
   const deleteProduct = async (productId) => {
     const newCart = cardProducts.filter((product) => product.id != productId);
 
-    setCardProducts(newCart);
+    const confirmDelete = confirm('Deseja excluir este produto?');
+
+    if (confirmDelete) {
+      const newCartDelete = cardProducts.filter((product) => product.id != productId);
+
+      setCardProducts(newCartDelete);
+    }
 
     await updateLocalStorage(newCart);
   };

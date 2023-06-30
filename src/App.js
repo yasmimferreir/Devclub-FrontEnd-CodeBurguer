@@ -2,7 +2,7 @@ import { ToastContainer } from 'react-toastify';
 import GlobalStyled from './styles/globalStyled';
 
 import Rotas from './routes/routes';
-import AppProvider from './hooks';
+import AppProvider from './hooks/index';
 
 function App() {
   return (

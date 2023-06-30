@@ -3,3 +3,4 @@ export * from './CardProduct/CardProduct';
 export * from './CategoryCarousel/CategoryCarousel';
 export * from './OffersCarousel/OffersCarousel';
 export * from './CartItems/CartItem';
+export * from './CartResume/CartResume';

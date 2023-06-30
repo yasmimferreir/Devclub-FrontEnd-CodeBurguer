@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container, CartImg } from './style';
+import { Container, CartImg, Wrapper } from './style';
 import BackgroundCart from '../../assets/cartQuantity.svg';
-import { CartItems } from '../../components';
+import { CartItems, CartResume } from '../../components';
 
 export function Cart() {
   return (
     <Container>
       <CartImg src={BackgroundCart} alt="Background-Home" />
-      <CartItems />
+      <Wrapper>
+        <CartItems />
+        <CartResume />
+      </Wrapper>
     </Container>
   );
 }
