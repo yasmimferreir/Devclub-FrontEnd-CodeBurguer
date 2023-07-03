@@ -6,7 +6,6 @@ import { TbShoppingCartOff } from 'react-icons/tb';
 
 export function CartItems() {
   const { cardProducts, increaseProducts, decreaseProducts } = userCart();
-  console.log(cardProducts);
 
   return (
     <Container>
