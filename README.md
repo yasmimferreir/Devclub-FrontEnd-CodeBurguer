@@ -27,11 +27,20 @@ npm install react-icons --save
 ```
 <br>
 
+ Utilização de ferramentas no Front-end / ⚛ ***Toastify***:
+
+```
+npm i react-toastify
+```
+<br>
+
 
 ## 🍔 Projeto 
 <br>
 
-<img src="https://github.com/yasmimferreir/Devclub-FrontEnd-CodeBurguer/assets/97356148/ed61519c-d292-47a7-b549-1c08383cebe7" width="1040px">
+<img src="https://github.com/yasmimferreir/Devclub-FrontEnd-CodeBurguer/assets/97356148/a372480e-c2e1-47a9-b7b4-91ecdf8b34cc" width="500px">
+
+<img src="https://github.com/yasmimferreir/Devclub-FrontEnd-CodeBurguer/assets/97356148/f4c33a9a-5df2-4a0f-b0ce-fb5210884f14" width="500px">
 
 <br>
 
