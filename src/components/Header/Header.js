@@ -10,13 +10,27 @@ import {
   ContainerText,
   Line,
 } from './styled';
+import { useHistory } from 'react-router-dom';
 
 export function Header() {
+  const history = useHistory();
+  const {
+    location: { pathname },
+  } = useHistory();
+
   return (
     <Container>
       <ContainerLeft>
-        <PageLink>Home</PageLink>
-        <PageLink> Ver Produtos</PageLink>
+        <PageLink onClick={() => history.push('/')} isActive={pathname == '/'}>
+          Home
+        </PageLink>
+        <PageLink
+          onClick={() => history.push('/produtos')}
+          isActive={pathname.includes('produtos')}
+        >
+          {' '}
+          Ver Produtos
+        </PageLink>
       </ContainerLeft>
 
       <ContainerRight>
