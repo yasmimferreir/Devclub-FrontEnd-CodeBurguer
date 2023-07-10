@@ -15,7 +15,7 @@ import { useHistory } from 'react-router-dom';
 import { userUser } from '../../hooks/UserContext';
 
 export function Header() {
-  const { logout } = userUser();
+  const { logout, userData } = userUser();
 
   const history = useHistory();
 
@@ -56,7 +56,7 @@ export function Header() {
         </PageLink>
 
         <ContainerText>
-          <p>Olá, Yasmim</p>
+          <p>Olá, {userData.name}</p>
           <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
       </ContainerRight>

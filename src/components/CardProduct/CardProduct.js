@@ -4,9 +4,11 @@ import { Button } from '../Button/Button';
 import { Container, Image, ProductName, ProductPrice } from './styled';
 import { BsFillCartPlusFill } from 'react-icons/bs';
 import { userCart } from '../../hooks/CartContext';
+import { useHistory } from 'react-router-dom';
 
 export function CardProduct({ product }) {
   const { putProductInCart } = userCart();
+  const { push } = useHistory();
 
   return (
     <Container>
@@ -15,7 +17,11 @@ export function CardProduct({ product }) {
       <div>
         <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.formatedPrice}</ProductPrice>
-        <Button onClick={() => putProductInCart(product)}>
+        <Button
+          onClick={() => {
+            putProductInCart(product), push('/carrinho');
+          }}
+        >
           Adicionar {''} <BsFillCartPlusFill style={{ fontSize: '14px' }} />
         </Button>
       </div>

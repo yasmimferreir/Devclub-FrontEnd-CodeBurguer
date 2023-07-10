@@ -4,14 +4,20 @@ import { Container, ProductImg, CategoryButton, CategoriesMenu, ProductContainer
 import BackgroundProduct from '../../assets/backgroundProducts.svg';
 import { CardProduct } from '../../components';
 import formatCurrenct from '../../utils/formatCurrency';
+import PropTypes from 'prop-types';
 
-export function Products() {
+export function Products({ location: { state } }) {
+  let categoryId = 0;
+  if (state?.categoryId) {
+    categoryId = state.categoryId;
+  }
+
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
 
   const [filterProducts, setFilterProducts] = useState([]);
 
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(categoryId);
 
   useEffect(() => {
     async function loadCategories() {
@@ -71,3 +77,7 @@ export function Products() {
     </Container>
   );
 }
+
+Products.propTypes = {
+  location: PropTypes.object,
+};

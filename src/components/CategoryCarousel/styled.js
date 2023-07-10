@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,7 +42,7 @@ export const Image = styled.img`
   border-radius: 10px;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   margin-top: 16px;
   background: #9758a6;
   border-radius: 8px;
@@ -62,4 +64,9 @@ export const Button = styled.button`
   &:active {
     opacity: 0.2;
   }
+
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
