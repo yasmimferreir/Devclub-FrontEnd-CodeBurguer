@@ -12,11 +12,22 @@ import {
 } from './styled';
 import { useHistory } from 'react-router-dom';
 
+import { userUser } from '../../hooks/UserContext';
+
 export function Header() {
+  const { logout } = userUser();
+
   const history = useHistory();
+
   const {
+    push,
     location: { pathname },
   } = useHistory();
+
+  const logoutUser = () => {
+    logout();
+    push('/login');
+  };
 
   return (
     <Container>
@@ -34,7 +45,7 @@ export function Header() {
       </ContainerLeft>
 
       <ContainerRight>
-        <PageLink>
+        <PageLink onClick={() => history.push('/carrinho')}>
           {' '}
           <img src={Cart} alt="carrinho" />{' '}
         </PageLink>
@@ -46,7 +57,7 @@ export function Header() {
 
         <ContainerText>
           <p>Olá, Yasmim</p>
-          <PageLinkExit>Sair</PageLinkExit>
+          <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
       </ContainerRight>
     </Container>
