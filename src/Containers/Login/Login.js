@@ -62,9 +62,14 @@ export function Login() {
     putUserData(data);
 
     setTimeout(() => {
-      history.push('/');
+      if (data.admin) {
+        history.push('/painel');
+      } else {
+        history.push('/');
+      }
     }, 1000);
   };
+
   return (
     <Container>
       <LoginImage src={LoginImg} alt="Image Login" />
