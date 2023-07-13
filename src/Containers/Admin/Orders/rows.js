@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductImg } from './styled';
+import { ProductImg, ReactSelect } from './styled';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -14,22 +14,23 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import PropTypes from 'prop-types';
 import formatDate from '../../../utils/formatDate';
 import api from '../../../services/api';
-
-import Select from 'react-select';
+import status from './orders-status';
 
 function Row({ row }) {
-  const options = [
-    { value: 'em preparação', label: 'em preparação' },
-    { value: 'Pronto', label: 'Pronto' },
-    { value: 'a caminho', label: ' a caminho' },
-  ];
-
   const [open, setOpen] = React.useState(false);
 
+  const [isLoading, setIsLoading] = React.useState(false);
+
   async function setNewStatus(id, status) {
-    await api.put(`orders/${id}`, { status });
+    setIsLoading(true);
+    try {
+      await api.put(`orders/${id}`, { status });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   }
-  console.log(setNewStatus);
 
   return (
     <React.Fragment>
@@ -45,7 +46,18 @@ function Row({ row }) {
         <TableCell>{row.name}</TableCell>
         <TableCell>{formatDate(row.date)}</TableCell>
         <TableCell>
-          <Select options={options}>{row.status}</Select>
+          <ReactSelect
+            options={status}
+            menuPortalTarget={document.body}
+            placeholder="Status"
+            defaultValue={status.find((option) => option.value === row.status) || null}
+            onChange={(newStatus) => {
+              setNewStatus(row.orderId, newStatus.value);
+            }}
+            isLoading={isLoading}
+          >
+            {row.status}
+          </ReactSelect>
         </TableCell>
 
         <TableCell></TableCell>
