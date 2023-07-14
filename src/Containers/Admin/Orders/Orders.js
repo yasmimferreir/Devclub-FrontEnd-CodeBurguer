@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container } from './styled';
+import { Container, Menu, LinkMenu } from './styled';
 import api from '../../../services/api';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,9 +9,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Row from './rows';
+import status from './orders-status';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
+  const [filterOrders, setFilterOrders] = useState([]);
+  const [activeStatus, setActiveStatus] = useState(1);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -19,6 +22,7 @@ function Orders() {
       const { data } = await api.get('orders');
 
       setOrders(data);
+      setFilterOrders(data);
     }
 
     loadOrders();
@@ -35,13 +39,37 @@ function Orders() {
   }
 
   useEffect(() => {
-    const newRows = orders.map((ord) => createData(ord));
+    const newRows = filterOrders.map((ord) => createData(ord));
 
     setRows(newRows);
-  }, [orders]);
+  }, [filterOrders]);
+
+  function handleStatus(status) {
+    if (status.id === 1) {
+      setFilterOrders(orders);
+    } else {
+      const newOrder = orders.filter((order) => order.status === status.value);
+      setFilterOrders(newOrder);
+    }
+
+    setActiveStatus(status.id);
+  }
 
   return (
     <Container>
+      <Menu>
+        {status &&
+          status.map((status) => (
+            <LinkMenu
+              key={status.id}
+              onClick={() => handleStatus(status)}
+              isActiveStatus={activeStatus === status.id}
+            >
+              {status.label}
+            </LinkMenu>
+          ))}
+      </Menu>
+
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
