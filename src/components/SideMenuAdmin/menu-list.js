@@ -5,7 +5,7 @@ const ListLink = [
     icon: LocalMallIcon,
     id: 1,
     label: 'Pedidos',
-    link: '/pedidos',
+    link: '/carrinho',
   },
 ];
 
