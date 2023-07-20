@@ -7,3 +7,7 @@ export const Container = styled.div`
   width: 98.8vw;
   background: #efefef;
 `;
+
+export const ContainerItems = styled.div`
+  padding: 20px;
+`;
