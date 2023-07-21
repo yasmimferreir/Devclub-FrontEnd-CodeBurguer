@@ -4,6 +4,7 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import { Login, Register, Home, Products, Cart, Admin } from '../Containers';
 
 import PrivateRoute from './private-route';
+import paths from '../constants/paths';
 
 function Rotas() {
   return (
@@ -18,8 +19,8 @@ function Rotas() {
           <PrivateRoute component={Products} path="/produtos" />
           <PrivateRoute component={Cart} path="/carrinho" />
 
-          <PrivateRoute component={Admin} path="/painel" isAdmin={true} />
-          <PrivateRoute component={Admin} path="/listar-produtos" isAdmin={true} />
+          <PrivateRoute component={Admin} path={paths.Order} isAdmin={true} />
+          <PrivateRoute component={Admin} path={paths.Products} isAdmin={true} />
         </Switch>
       </Router>
     </>
