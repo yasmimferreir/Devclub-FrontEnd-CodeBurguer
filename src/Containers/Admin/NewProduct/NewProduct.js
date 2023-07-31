@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Container, Label, Input } from './styled';
+import { Container, Label, Input, LabelUploud, ButtonProduct } from './styled';
 import api from '../../../services/api';
 import ReacSelect from 'react-select';
-import { Button } from '../../../components';
+
 import { useForm } from 'react-hook-form';
 
 function NewProduct() {
@@ -27,12 +27,14 @@ function NewProduct() {
           <Label>Preço</Label>
           <Input type="number" {...register('price')} />
 
-          <Label>Upload da imagem</Label>
-          <Input type="file" accept="image/png, image/jpeg" />
+          <LabelUploud>
+            Carregue a imagem do produto
+            <input type="file" accept="image/png, image/jpeg" {...register('file')} />
+          </LabelUploud>
 
-          <ReacSelect />
+          <ReacSelect className="select" />
 
-          <Button>Adicionar produto</Button>
+          <ButtonProduct>Adicionar produto</ButtonProduct>
         </form>
       </Container>
     </>

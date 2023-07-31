@@ -1,16 +1,21 @@
 import styled from 'styled-components';
+import { Button } from '../../../components';
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  //height: 100%;
-  // display: flex;
-  //justify-content: center;
-  // align-items: center;
+  margin-bottom: 23px;
 
   form {
     background: #565656;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 30px;
+
+    .select {
+      width: 100%;
+    }
   }
 `;
 
@@ -27,5 +32,26 @@ export const Input = styled.input`
   border-radius: 8px;
   border: none;
   margin-bottom: 25px;
-  width: 30%;
+  width: 100%;
+  min-width: 280px;
+`;
+
+export const ButtonProduct = styled(Button)`
+  margin-top: 25px;
+  width: 100%;
+`;
+
+export const LabelUploud = styled.label`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px dashed #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 25px;
+
+  input {
+    opacity: 0;
+    width: 1px;
+  }
 `;
