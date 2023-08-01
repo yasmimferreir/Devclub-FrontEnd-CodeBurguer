@@ -49,6 +49,7 @@ export const LabelUploud = styled.label`
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 25px;
+  gap: 10px;
 
   input {
     opacity: 0;
