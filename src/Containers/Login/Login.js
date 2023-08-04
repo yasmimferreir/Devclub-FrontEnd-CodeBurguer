@@ -1,15 +1,7 @@
 import React from 'react';
-import {
-  Container,
-  LoginImage,
-  ContainerItems,
-  Label,
-  Input,
-  ErrorMessage,
-  SignInLink,
-} from './style';
+import { Container, LoginImage, ContainerItems, Label, Input, SignInLink } from './style';
 
-import { Button } from '../../components';
+import { Button, ErrorMessage } from '../../components';
 import LoginImg from '../../assets/background.svg';
 import Logo from '../../assets/logo.svg';
 

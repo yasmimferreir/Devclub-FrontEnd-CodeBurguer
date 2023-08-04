@@ -6,3 +6,4 @@ export * from './CartItems/CartItem';
 export * from './CartResume/CartResume';
 export * from './Header/Header';
 export * from './SideMenuAdmin/SideMenuAdmin';
+export * from './ErrorMenssage/ErrorMessage';

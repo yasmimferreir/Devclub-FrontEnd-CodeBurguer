@@ -56,14 +56,6 @@ export const Input = styled.input`
   padding-left: 10px;
 `;
 
-export const ErrorMessage = styled.p`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  color: #cc1717;
-  margin-top: 2px;
-`;
-
 export const SignInLink = styled.p`
   font-weight: 100;
   font-size: 14px;
