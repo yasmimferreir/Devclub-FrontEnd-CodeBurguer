@@ -12,6 +12,9 @@ export const Container = styled.div`
     background: #565656;
     border-radius: 8px;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 
     .select {
       width: 100%;
@@ -22,7 +25,6 @@ export const Container = styled.div`
 export const Label = styled.p`
   font-size: 14px;
   color: #ffff;
-  margin-bottom: 3px;
 `;
 
 export const Input = styled.input`
@@ -31,9 +33,9 @@ export const Input = styled.input`
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   border: none;
-  margin-bottom: 25px;
   width: 100%;
   min-width: 280px;
+  padding-left: 10px;
 `;
 
 export const ButtonProduct = styled(Button)`
