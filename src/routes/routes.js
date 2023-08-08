@@ -22,6 +22,7 @@ function Rotas() {
           <PrivateRoute component={Admin} path={paths.Order} isAdmin={true} />
           <PrivateRoute component={Admin} path={paths.Products} isAdmin={true} />
           <PrivateRoute component={Admin} path={paths.NewProduct} isAdmin={true} />
+          <PrivateRoute component={Admin} path={paths.EditProduct} isAdmin={true} />
         </Switch>
       </Router>
     </>

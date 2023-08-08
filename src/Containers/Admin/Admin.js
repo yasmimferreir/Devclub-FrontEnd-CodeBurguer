@@ -6,6 +6,7 @@ import { SideMenuAdmin } from '../../components/SideMenuAdmin/SideMenuAdmin';
 import { PropTypes } from 'prop-types';
 import paths from '../../constants/paths';
 import NewProduct from './NewProduct/NewProduct';
+import EditProduct from './EditProduct/EditProduct';
 
 export function Admin({ match: { path } }) {
   return (
@@ -13,9 +14,9 @@ export function Admin({ match: { path } }) {
       <SideMenuAdmin path={path} />
       <ContainerItems>
         {path === paths.Order && <Orders />}
-        {path === paths.Order && <ListProducts />}
+        {path === paths.Products && <ListProducts />}
         {path === paths.NewProduct && <NewProduct />}
-        <ListProducts />
+        {path === paths.EditProduct && <EditProduct />}
       </ContainerItems>
     </Container>
   );
