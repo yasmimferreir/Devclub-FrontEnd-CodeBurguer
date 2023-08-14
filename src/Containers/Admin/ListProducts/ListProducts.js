@@ -13,7 +13,6 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import formatCurrency from '../../../utils/formatCurrency';
 import { useHistory } from 'react-router-dom';
 import paths from '../../../constants/paths';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 function ListProducts() {
   const [products, setProducts] = useState();
@@ -72,9 +71,6 @@ function ListProducts() {
                   </TableCell>
                   <TableCell>
                     <EditIcons onClick={() => editProduct(product)} />
-                  </TableCell>
-                  <TableCell>
-                    <DeleteIcon style={{ cursor: 'pointer' }} />
                   </TableCell>
                 </TableRow>
               ))}
